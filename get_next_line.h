@@ -6,7 +6,7 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/02 20:09:23 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/02 20:16:54 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/02 21:24:08 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 # define GET_NEXT_LINE .H
 # include <stdio.h>
 
-//functions I use go here
+// functions I use to go here
 
 #endif
