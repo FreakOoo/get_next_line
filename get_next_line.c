@@ -6,10 +6,11 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/06 21:36:04 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/07 17:22:47 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/07 18:38:31 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+//Maxime Chopin -
 #include "get_next_line.h"
 
 char	*get_next_line(int fd)
