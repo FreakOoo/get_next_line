@@ -7,4 +7,7 @@ git push github master
 sleep 2 
 clear
 tree
+git status
+sleep 5
+clear
 cowsay -f eyes "you fat bastard, get outta here ;) " 
