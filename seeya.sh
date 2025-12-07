@@ -10,8 +10,7 @@ tree
 git status
 sleep 5
 clear
-cowsay -f eyes "ALL DONE !!!
-You fat bastard, get outta here ;) "
-sleep 10
+cowsay -f eyes "ALL DONE !!! You fat bastard, get outta here ;) "
+sleep 5
 clear
-cowsay -f eyes "wtf are you still doing here, GO !!!"
+cowsay -f eyes "Come on go away..."
