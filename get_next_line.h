@@ -11,10 +11,17 @@
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
+#ifndef BUFFER_SIZE=42
+//need to find how  to make it definable like this with the flag -D BUFFER_SIZE #define Buffer_size=
 # define GET_NEXT_LINE_H
 # include <stdio.h>
 #include <fcntl.h>
 
 // functions I use to go here
+// strlen
+// strchr
+// strjoin
+// strdup
+// substr
 
 #endif

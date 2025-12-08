@@ -15,8 +15,7 @@
 
 char	*get_next_line(int fd)
 {	
-	{
-	}
+
 	// read text file, if repeated calls with loop,
 	//	do line by line. can select file descriptor
 	// return line that was read

@@ -12,3 +12,9 @@
 
 #include "get_next_line.h"
 
+//needed helpers
+// ft_strlen()
+// ft_strchr()
+// ft_strjoin()
+// ft_strdup()
+// ft_substr()
