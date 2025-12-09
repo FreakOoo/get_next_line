@@ -6,7 +6,7 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/06 21:36:04 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/07 18:38:31 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/09 18:06:35 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,4 @@ int	main(void)
 		printf("buffer : %s\n", buffer);
 	}
 	close(fd);
-
-	// close this guy at the end
 }
