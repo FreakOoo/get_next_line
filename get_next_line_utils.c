@@ -6,7 +6,7 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/02 20:09:11 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/10 17:50:45 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/10 18:21:09 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,11 @@ char	*ft_strdup(const char *s)
 	dst = (char *)malloc(sizeof(*s) * (len + 1));
 	if (!dst)
 		return (NULL);
-	ft_memcpy(dst, s, len);
+	while (i < len)
+	{
+		dst[i] = s[i];
+		i++;
+	}
 	dst[len] = '\0';
 	return (dst);
 }
@@ -101,4 +105,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	str[i] = '\0';
 	return (str);
+}
+int	main(void)
+{
+	printf("%zu\n", ft_strlen("hello"));
+	printf("%s\n", ft_strchr("sphinx of black quartz", 'x'));
+	printf("%s\n", ft_strjoin("sphinx of ", "BLACK QUARTZ"));
+	printf("%s\n", ft_strdup("Sphinx Of Black Quartz"));
+	printf("%s\n", ft_substr("Sphinx of Black Quartz", 3, 10));
 }
