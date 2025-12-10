@@ -6,7 +6,7 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/02 20:09:11 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/10 18:21:09 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/10 18:22:38 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
-int	main(void)
-{
-	printf("%zu\n", ft_strlen("hello"));
-	printf("%s\n", ft_strchr("sphinx of black quartz", 'x'));
-	printf("%s\n", ft_strjoin("sphinx of ", "BLACK QUARTZ"));
-	printf("%s\n", ft_strdup("Sphinx Of Black Quartz"));
-	printf("%s\n", ft_substr("Sphinx of Black Quartz", 3, 10));
-}
+// int	main(void)
+// {
+// 	printf("%zu\n", ft_strlen("hello"));
+// 	printf("%s\n", ft_strchr("sphinx of black quartz", 'x'));
+// 	printf("%s\n", ft_strjoin("sphinx of ", "BLACK QUARTZ"));
+// 	printf("%s\n", ft_strdup("Sphinx Of Black Quartz"));
+// 	printf("%s\n", ft_substr("Sphinx of Black Quartz", 3, 10));
+// }
