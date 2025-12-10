@@ -6,13 +6,12 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/02 20:09:11 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/09 18:11:05 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/10 17:50:45 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-//needed helpers
 // ft_strlen()
 size_t	ft_strlen(const char *str)
 {
@@ -66,30 +65,40 @@ char	*ft_strjoin(char const *s1, char const *s2)
 // ft_strdup()
 char	*ft_strdup(const char *s)
 {
+	size_t	i;
 	size_t	len;
-	char	*dup;
+	char	*dst;
 
+	i = 0;
 	len = ft_strlen(s);
-	dup = malloc(len + 1);
-	if (!dup)
+	dst = (char *)malloc(sizeof(*s) * (len + 1));
+	if (!dst)
 		return (NULL);
-	ft_memcpy(dup, s, len);
-	dup[len] = '\0';
-	return (dup);
+	ft_memcpy(dst, s, len);
+	dst[len] = '\0';
+	return (dst);
 }
 // ft_substr()
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*substr;
+	char	*str;
+	int		i;
+	int		strlen;
 
+	i = 0;
+	strlen = ft_strlen(s);
 	if (!s || start >= ft_strlen(s))
 		return (ft_strdup(""));
 	if (len + start > ft_strlen(s))
 		len = ft_strlen(s) - start;
-	substr = malloc(len + 1);
-	if (!substr)
+	str = malloc(len + 1);
+	if (!str)
 		return (0);
-	ft_strlcpy(substr, (s + start), len + 1);
-	substr[len + 1] = '\0';
-	return (substr);
+	while (s[start + i] && i < len)
+	{
+		str[i] = s[start + 1];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
