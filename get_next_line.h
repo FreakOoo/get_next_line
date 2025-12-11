@@ -6,7 +6,7 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/02 20:09:23 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/10 18:20:16 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/11 18:09:14 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strjoin(const char *s1, const char *s2);
 // strjoin had char const before so if it acts weird that's why
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *s);
 
 #endif

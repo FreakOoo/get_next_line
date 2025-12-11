@@ -6,7 +6,7 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/02 20:09:11 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/10 18:22:38 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/11 18:12:55 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char	*ft_strchr(const char *str, int c)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (NULL);
 	while (str[i])
 	{
 		if (str[i] == (char)c)
@@ -41,26 +43,6 @@ char	*ft_strchr(const char *str, int c)
 	if (str[i] == (char)c)
 		return ((char *)&str[i]);
 	return (NULL);
-}
-// ft_strjoin()
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char	*mem;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	mem = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (!mem)
-		return (NULL);
-	while (s1[i])
-		mem[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		mem[j++] = s2[i++];
-	mem[j] = '\0';
-	return (mem);
 }
 // ft_strdup()
 char	*ft_strdup(const char *s)
@@ -82,6 +64,31 @@ char	*ft_strdup(const char *s)
 	dst[len] = '\0';
 	return (dst);
 }
+// ft_strjoin()
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*mem;
+	int		i;
+	int		j;
+
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (NULL);
+	i = 0;
+	j = 0;
+	mem = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!mem)
+		return (NULL);
+	while (s1[i])
+		mem[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		mem[j++] = s2[i++];
+	mem[j] = '\0';
+	return (mem);
+}
+
 // ft_substr()
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
