@@ -6,7 +6,7 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/02 20:09:11 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/11 18:12:55 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/11 20:22:56 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 // ft_strchr()
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, char c)
 {
 	int	i;
 
@@ -77,7 +77,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	mem = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	mem = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 2) * sizeof(char));
 	if (!mem)
 		return (NULL);
 	while (s1[i])
@@ -93,11 +93,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
-	int		i;
-	int		strlen;
+	size_t	i;
 
 	i = 0;
-	strlen = ft_strlen(s);
 	if (!s || start >= ft_strlen(s))
 		return (ft_strdup(""));
 	if (len + start > ft_strlen(s))
@@ -105,10 +103,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str = malloc(len + 1);
 	if (!str)
 		return (0);
-	while (s[start + i] && i < len)
+	while (s[start] && i < len)
 	{
-		str[i] = s[start + 1];
+		str[i] = s[start];
 		i++;
+		start++;
 	}
 	str[i] = '\0';
 	return (str);

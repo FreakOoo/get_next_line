@@ -6,7 +6,7 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/06 21:36:04 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/11 18:12:13 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/11 20:28:06 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 char	*read_part(int fd, char *stash)
 {
-	char	*BUFFER;
+	char	*buffer;
 	int		bytes_read;
 	char	*tmp;
 
-	BUFFER = malloc(BUFFER_SIZE + 1);
+	buffer = malloc(BUFFER_SIZE + 1);
+	if (!buffer)
+		return (NULL);
 	if (fd < 0 && BUFFER_SIZE <= 0)
 		return (NULL);
 	while (!ft_strchr(stash, '\n'))
 	{
-		bytes_read = read(fd, BUFFER, BUFFER_SIZE);
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
-			return (free(stash), free(BUFFER), NULL);
+			return (free(stash), free(buffer), NULL);
 		if (bytes_read == 0)
-			return (NULL);
+			break ;
+		buffer[bytes_read] = '\0';
 		tmp = stash;
-		stash = ft_strjoin(stash, BUFFER);
+		stash = ft_strjoin(stash, buffer);
 		free(tmp);
 	}
-	// check with valgrind if it still frees whenI get a newline in the while loop
-	free(BUFFER);
-	return (stash);
+	return (free(buffer), stash);
 }
 
 char	*get_next_line(int fd)
@@ -45,17 +46,20 @@ char	*get_next_line(int fd)
 	char		*pos;
 	int			len;
 
+	line = NULL;
 	stash = read_part(fd, stash);
 	if (!stash)
+		return (NULL);
+	if (stash[0] == '\0')
 	{
 		free(stash);
 		stash = NULL;
 		return (NULL);
 	}
-	if (stash[0] == '\0')
-		return (NULL);
-	pos = ft_strchr(stash, '\n');
-	len = (pos - stash) + 1;
+	len = ft_strlen(stash);
+	pos = ft_strchr(stash, '\n') + 1;
+	if (pos)
+		len = (pos - stash);
 	line = ft_substr(stash, 0, len);
 	tmp = stash;
 	stash = ft_substr(stash, len, (ft_strlen(stash) - len));
@@ -66,15 +70,16 @@ char	*get_next_line(int fd)
 int	main(void)
 {
 	int		fd;
-	char	buffer[256];
-	int		chars_read;
+	char	*str;
 
-	fd = open("bible.txt", O_RDONLY);
-	printf("%s\n", get_next_line(fd));
-	// while ((chars_read = read(fd, buffer, 100)))
-	// {
-	// 	buffer[chars_read] = '\0';
-	// 	printf("buffer : %s\n", buffer);
-	// }
-	// close(fd);
+	fd = 0;
+	str = (char *)1;
+	fd = open("./bible.txt", O_RDONLY);
+	while (str)
+	{
+		str = get_next_line(fd);
+		printf("%s", str);
+		free(str);
+	}
+	close(fd);
 }
