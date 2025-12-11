@@ -6,7 +6,7 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/06 21:36:04 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/11 20:28:06 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/11 21:16:32 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	main(void)
 
 	fd = 0;
 	str = (char *)1;
-	fd = open("./bible.txt", O_RDONLY);
+	fd = open("./get_next_line.c", O_RDONLY);
 	while (str)
 	{
 		str = get_next_line(fd);
