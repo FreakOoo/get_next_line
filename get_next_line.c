@@ -6,7 +6,7 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/06 21:36:04 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/11 21:16:32 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/12 18:02:36 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ char	*read_part(int fd, char *stash)
 	int		bytes_read;
 	char	*tmp;
 
+	if (fd < 0 && BUFFER_SIZE < 0)
+		return (NULL);
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
-		return (NULL);
-	if (fd < 0 && BUFFER_SIZE <= 0)
 		return (NULL);
 	while (!ft_strchr(stash, '\n'))
 	{
@@ -67,19 +67,19 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
-{
-	int		fd;
-	char	*str;
+// int	main(void)
+// {
+// 	int		fd;
+// 	char	*str;
 
-	fd = 0;
-	str = (char *)1;
-	fd = open("./get_next_line.c", O_RDONLY);
-	while (str)
-	{
-		str = get_next_line(fd);
-		printf("%s", str);
-		free(str);
-	}
-	close(fd);
-}
+// 	fd = 0;
+// 	str = (char *)1;
+// 	fd = open("./bible.txt", O_RDONLY);
+// 	while (str)
+// 	{
+// 		str = get_next_line(fd);
+// 		printf("%s", str);
+// 		free(str);
+// 	}
+// 	close(fd);
+// }

@@ -6,13 +6,12 @@
 /*   By: mchopin <mchopin@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/12/02 20:09:11 by mchopin       #+#    #+#                 */
-/*   Updated: 2025/12/11 20:22:56 by mchopin       ########   odam.nl         */
+/*   Updated: 2025/12/12 17:19:18 by mchopin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-// ft_strlen()
 size_t	ft_strlen(const char *str)
 {
 	int	i;
@@ -24,7 +23,7 @@ size_t	ft_strlen(const char *str)
 	}
 	return (i);
 }
-// ft_strchr()
+
 char	*ft_strchr(const char *str, char c)
 {
 	int	i;
@@ -44,7 +43,7 @@ char	*ft_strchr(const char *str, char c)
 		return ((char *)&str[i]);
 	return (NULL);
 }
-// ft_strdup()
+
 char	*ft_strdup(const char *s)
 {
 	size_t	i;
@@ -64,7 +63,7 @@ char	*ft_strdup(const char *s)
 	dst[len] = '\0';
 	return (dst);
 }
-// ft_strjoin()
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*mem;
@@ -89,7 +88,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (mem);
 }
 
-// ft_substr()
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
